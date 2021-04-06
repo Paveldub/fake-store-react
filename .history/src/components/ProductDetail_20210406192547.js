@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectedProduct,
-  removeSelectedProduct,
-} from '../redux/actions/productActions';
+import { selectedProduct } from '../redux/actions/productActions';
 import { Preloader } from '../common/preloader/preloader';
 import axios from 'axios';
 
@@ -12,9 +9,10 @@ export const ProductDetails = () => {
   const { productId } = useParams();
 
   const product = useSelector((state) => state.product);
-
   const { image, title, price, category, description } = product;
-  
+
+  console.log(product);
+
   const dispatch = useDispatch();
 
   const fetchProductDetail = async () => {
@@ -29,10 +27,6 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     if (productId && productId !== '') fetchProductDetail();
-
-    return () => {
-      dispatch(removeSelectedProduct())
-    }
   }, [productId]);
 
  

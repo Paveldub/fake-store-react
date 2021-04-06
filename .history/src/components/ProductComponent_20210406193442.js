@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Preloader } from '../common/preloader/preloader';
 
 export const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);

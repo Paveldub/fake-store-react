@@ -29,10 +29,6 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     if (productId && productId !== '') fetchProductDetail();
-
-    return () => {
-      dispatch(removeSelectedProduct())
-    }
   }, [productId]);
 
  

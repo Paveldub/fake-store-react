@@ -5,10 +5,8 @@ export const Header = () => {
   return (
     <div className="ui fixed menu">
       <div className="ui container center">
-        <Link to="/">
-          <h2>SHOP NOW</h2>
-        </Link>
+        <h2>SHOP NOW</h2>
       </div>
     </div>
-  );
+  )
 }

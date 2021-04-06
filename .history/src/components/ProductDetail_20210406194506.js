@@ -31,7 +31,7 @@ export const ProductDetails = () => {
     if (productId && productId !== '') fetchProductDetail();
 
     return () => {
-      dispatch(removeSelectedProduct())
+      dispatch(removeSelectedProduct(productId)
     }
   }, [productId]);
 

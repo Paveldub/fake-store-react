@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectedProduct,
-  removeSelectedProduct,
-} from '../redux/actions/productActions';
+import { selectedProduct } from '../redux/actions/productActions';
 import { Preloader } from '../common/preloader/preloader';
 import axios from 'axios';
 
@@ -12,7 +9,6 @@ export const ProductDetails = () => {
   const { productId } = useParams();
 
   const product = useSelector((state) => state.product);
-
   const { image, title, price, category, description } = product;
   
   const dispatch = useDispatch();
@@ -29,10 +25,6 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     if (productId && productId !== '') fetchProductDetail();
-
-    return () => {
-      dispatch(removeSelectedProduct())
-    }
   }, [productId]);
 
  
@@ -40,7 +32,7 @@ export const ProductDetails = () => {
       <div className="ui grid container">
         {Object.keys(product).length === 0 ? (
           <Preloader />
-        ) : (
+        {/* ) : (
           <div className="ui placeholder segment">
             <div className="ui two column stackable center aligned grid">
               <div className="ui vertical divider">AND</div>
@@ -64,7 +56,7 @@ export const ProductDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         )}
       </div>
     );

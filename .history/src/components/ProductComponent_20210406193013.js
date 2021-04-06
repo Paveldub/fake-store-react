@@ -8,6 +8,8 @@ export const ProductComponent = () => {
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product;
     return (
+    <>
+             {product.length === 0 ? }
       <div className="four wide column" key={id}>
         <Link to={`/product/${id}`}>
           <div className="ui link cards">
@@ -23,7 +25,9 @@ export const ProductComponent = () => {
             </div>
           </div>
         </Link>
-      </div>
+      </div> 
+        </>
+
     );
   });
 
