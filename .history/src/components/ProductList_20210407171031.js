@@ -25,7 +25,9 @@ export const ProductList = () => {
         console.error(error, 'error');
       });
     
-    dispatch(setProducts(response.data));
+    // console.log(response.data);
+    
+    dispatch(setProducts(response));
   }
 
   useEffect(() => {

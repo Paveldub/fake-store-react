@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   selectedProduct,
 } from '../redux/actions/productActions';
@@ -12,7 +11,7 @@ export const ProductDetails = () => {
 
   const product = useSelector((state) => state.product);
 
-  const { image, currency, name, url } = product;
+  const { image, currency } = product;
   
   const dispatch = useDispatch();
 
@@ -31,7 +30,9 @@ export const ProductDetails = () => {
       console.error(error, 'error');
     });
     
-    dispatch(selectedProduct(response.data));
+    console.log(response.data);
+    
+    dispatch(selectedProduct(response));
   };
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export const ProductDetails = () => {
 
   }, []);
 
+ 
     return (
       <div className="ui grid container">
         <div className="ui placeholder segment">
@@ -53,8 +55,8 @@ export const ProductDetails = () => {
                 <h2>
                   <a className="ui teal tag label">${currency}</a>
                 </h2>
-                <h3 className="ui brown block header">{name}</h3>
-                <a href={url} target="_blank">LinkedIn handle</a>
+                <h3 className="ui brown block header">{}</h3>
+                <p>{}</p>
                 <div className="ui vertical animated button" tabIndex="0">
                   <div className="hidden content">
                     <i className="shop icon"></i>

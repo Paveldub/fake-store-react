@@ -31,6 +31,8 @@ export const ProductDetails = () => {
       console.error(error, 'error');
     });
     
+    console.log(response.data);
+    
     dispatch(selectedProduct(response.data));
   };
 
@@ -39,6 +41,7 @@ export const ProductDetails = () => {
 
   }, []);
 
+ 
     return (
       <div className="ui grid container">
         <div className="ui placeholder segment">

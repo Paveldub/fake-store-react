@@ -31,6 +31,8 @@ export const ProductDetails = () => {
       console.error(error, 'error');
     });
     
+    console.log(response.data);
+    
     dispatch(selectedProduct(response.data));
   };
 

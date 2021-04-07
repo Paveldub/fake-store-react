@@ -6,12 +6,10 @@ import axios from 'axios';
 
 export const ProductList = () => {
 
-  const dispatch = useDispatch();
-
   const options = {
     method: 'GET',
-    url: 'https://neobi.p.rapidapi.com/api/products',
-    params: { rev: 'v1.9', count: '5', htmlDescription: '0', page: '1' },
+    url: 'https://neobi.p.rapidapi.com/api/producers?rev=v1.9&count=5&page=1',
+    params: { rev: 'v1.9', count: '5', page: '1' },
     headers: {
       'x-rapidapi-key': '8234017c37mshd440df16a123d63p1007efjsn2e4797609776',
       'x-rapidapi-host': 'neobi.p.rapidapi.com',
@@ -19,13 +17,14 @@ export const ProductList = () => {
   };
 
   const fetchProducts = async () => {
-    const response = await axios
+    await axios
       .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
       .catch(function (error) {
-        console.error(error, 'error');
+        console.error(error);
       });
-    
-    dispatch(setProducts(response.data));
   }
 
   useEffect(() => {

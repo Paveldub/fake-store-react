@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 export const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
 
+  console.log(products);
+
   const renderList = products.map((product) => {
     const { ccc, currency, image, instockstatus, link } = product;
     return (
