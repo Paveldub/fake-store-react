@@ -18,7 +18,7 @@ export const ProductDetails = () => {
 
   const options = {
     method: 'GET',
-    url: `https://fakestoreapi.com/products/`,
+    url: `https://fakestoreapi.com/products/${productId}`,
     params: { rev: 'v1.9' },
     headers: {
       'x-rapidapi-key': '8234017c37mshd440df16a123d63p1007efjsn2e4797609776',
